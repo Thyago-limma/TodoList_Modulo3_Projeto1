@@ -4,16 +4,14 @@ const lista = [
   {
     id: '2',
     Tarefa: 'Oficina',
-    Descricao:
-      'Levar o Carro á Oficina Para Conserto do Motor',
-    Horario: 09.00,
+    Descricao: 'Levar o Carro á Oficina Para Conserto do Motor',
+    Horario: 09.0,
   },
   {
     id: '1',
     Tarefa: 'Compras',
-    Descricao:
-      'Ir ao Mercado e Fazer as Compras do Mês',
-    Horario: 14.00,
+    Descricao: 'Ir ao Mercado e Fazer as Compras do Mês',
+    Horario: 14.0,
   },
 ];
 
@@ -53,7 +51,6 @@ const deleteTarefa = (id) => {
       lista.splice(index, 1);
     }
   });
-
 };
 
 const initialService = () => {

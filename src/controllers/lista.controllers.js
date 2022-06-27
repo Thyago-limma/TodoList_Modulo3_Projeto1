@@ -29,7 +29,7 @@ const createTarefa = (req, res) => {
   if (
     tarefa.Tarefa === '' ||
     tarefa.Descricao === '' ||
-    tarefa.Horario === '' 
+    tarefa.Horario === ''
   ) {
     res.status(400).send({ message: 'Dados da Tarefa incompletos' });
   }
