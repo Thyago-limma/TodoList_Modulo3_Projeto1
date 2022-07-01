@@ -11,7 +11,8 @@ const findTarefaById = async(id) => {
 };
 
 const createTarefa = (tarefa) => {
-  const createdTarefa = await Tarefa.create(tarefa)
+  const createdTarefa = await Tarefa.create(tarefa);
+  return createdTarefa;
 };
 
 const updateTarefa = (id, updatedTarefa) => {
