@@ -1,56 +1,30 @@
-const { v4: uuidv4 } = require('uuid');
+const Tarefa = require('../models/Tarefa')
 
-const lista = [
-  {
-    id: '2',
-    Tarefa: 'Oficina',
-    Descricao: 'Levar o Carro á Oficina Para Conserto do Motor',
-    Horario: 09.0,
-  },
-  {
-    id: '1',
-    Tarefa: 'Compras',
-    Descricao: 'Ir ao Mercado e Fazer as Compras do Mês',
-    Horario: 14.0,
-  },
-];
+const findAllLista = async () => {
+  const allLista = await Tarefa.find();
+  return allLista;
+};
 
-const findAllLista = () => lista;
-
-const findTarefaById = (id) => {
-  let indice = 0;
-  const tarefaById = lista.map((tarefa, index) => {
-    if (tarefa.id === id) {
-      indice = index;
-      return tarefa;
-    }
-  });
-  return tarefaById[indice];
+const findTarefaById = async(id) => {
+  const oneTarefa = await Tarefa.findById();
+  return oneTarefa;
 };
 
 const createTarefa = (tarefa) => {
-  tarefa.id = uuidv4();
-  lista.push(tarefa);
-  return lista;
+  const createdTarefa = await Tarefa.create(tarefa)
 };
 
 const updateTarefa = (id, updatedTarefa) => {
-  lista.forEach((tarefa, index) => {
-    if (tarefa.id === id) {
-      updatedTarefa.id = id;
-      lista[index] = updatedTarefa;
-    }
-  });
-
-  return lista;
+  const updateTarefa = await Tarefa.findByIdAndUpdate(
+    id,
+    updatedTarefa,
+  ).setOptions({ returnOriginal: false });
+  return updateTarefa;
 };
 
-const deleteTarefa = (id) => {
-  lista.forEach((tarefa, index) => {
-    if (tarefa.id === id) {
-      lista.splice(index, 1);
-    }
-  });
+
+const deleteTarefa = async (id) => {
+  return await Tarefa.findByIdAndDelete(id);
 };
 
 const initialService = () => {
