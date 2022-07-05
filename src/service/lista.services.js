@@ -1,4 +1,4 @@
-const Tarefa = require('../models/Tarefa')
+const Tarefa = require('../models/Tarefa');
 
 const findAllLista = async () => {
   const allLista = await Tarefa.find();
@@ -10,12 +10,12 @@ const findTarefaById = async(id) => {
   return oneTarefa;
 };
 
-const createTarefa = (tarefa) => {
+const createTarefa = async (tarefa) => {
   const createdTarefa = await Tarefa.create(tarefa);
   return createdTarefa;
 };
 
-const updateTarefa = (id, updatedTarefa) => {
+const updateTarefa = async (id, updatedTarefa) => {
   const updateTarefa = await Tarefa.findByIdAndUpdate(
     id,
     updatedTarefa,
